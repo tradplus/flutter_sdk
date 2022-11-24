@@ -25,6 +25,7 @@ import io.flutter.plugin.common.MethodCall;
 import io.flutter.plugin.common.MethodChannel;
 
 public class TPRewardManager {
+
     private static TPRewardManager sInstance;
 
     private TPRewardManager() {
