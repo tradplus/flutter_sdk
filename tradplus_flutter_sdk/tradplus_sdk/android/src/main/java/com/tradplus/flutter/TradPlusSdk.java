@@ -124,6 +124,8 @@ public class TradPlusSdk {
                         setOpenDelayLoadAds(call, result);
                     } else if (call.method.equals("tp_addGlobalAdImpressionListener")) {
                         setGlobalImpressionListener(call, result);
+                    } else if (call.method.equals("tp_setSettingDataParam")) {
+                        setSettingDataParam(call, result);
                     } else {
                         Log.e("TradPlusLog", "unknown method");
                     }
@@ -150,6 +152,13 @@ public class TradPlusSdk {
         if (customMap != null) {
 
             SegmentUtils.initCustomMap(customMap);
+        }
+    }
+    private void setSettingDataParam(@NonNull MethodCall call, @NonNull MethodChannel.Result result) {
+        Map<String, Object> settingMap = call.argument("setting");
+        Log.i("tradplus", "settingMap = " + settingMap);
+        if (settingMap != null) {
+            com.tradplus.ads.open.TradPlusSdk.setSettingDataParam(settingMap);
         }
     }
 
