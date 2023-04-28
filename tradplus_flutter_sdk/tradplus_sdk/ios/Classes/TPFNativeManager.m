@@ -77,7 +77,6 @@
         native = [[TPFNative alloc] init];
         self.nativeAds[adUnitID] = native;
     }
-    [native setAdUnitID:adUnitID];
     NSDictionary *extraMap = call.arguments[@"extraMap"];
     CGFloat templateWidth = [extraMap[@"templateWidth"] floatValue];
     CGFloat templateHeight = [extraMap[@"templateHeight"] floatValue];
@@ -97,7 +96,13 @@
         {
             [native setCustomMap:customMap];
         }
+        id localParams = extraMap[@"localParams"];
+        if(localParams != nil && [localParams isKindOfClass:[NSDictionary class]])
+        {
+            [native setLocalParams:localParams];
+        }
     }
+    [native setAdUnitID:adUnitID];
     NSInteger loadCount = [extraMap[@"loadCount"] integerValue];
     if(loadCount > 0)
     {

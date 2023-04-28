@@ -80,7 +80,6 @@
     {
         [banner setBannerSize:CGSizeMake(width, height)];
     }
-    [banner setAdUnitID:adUnitID];
     NSInteger contentMode = [extraMap[@"contentMode"] integerValue];
     [banner setBannerContentMode:contentMode];
     if(extraMap != nil)
@@ -90,7 +89,13 @@
         {
             [banner setCustomMap:customMap];
         }
+        id localParams = extraMap[@"localParams"];
+        if(localParams != nil && [localParams isKindOfClass:[NSDictionary class]])
+        {
+            [banner setLocalParams:localParams];
+        }
     }
+    [banner setAdUnitID:adUnitID];
     NSString *sceneId = extraMap[@"sceneId"];
     [banner loadAdWithSceneId:sceneId];
 }

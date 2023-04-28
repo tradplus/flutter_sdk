@@ -93,7 +93,6 @@
         offerwall = [[TPFOfferwall alloc] init];
         self.offerwallAds[adUnitID] = offerwall;
     }
-    [offerwall setAdUnitID:adUnitID];
     NSDictionary *extraMap = call.arguments[@"extraMap"];
     if(extraMap != nil)
     {
@@ -102,7 +101,13 @@
         {
             [offerwall setCustomMap:customMap];
         }
+        id localParams = extraMap[@"localParams"];
+        if(localParams != nil && [localParams isKindOfClass:[NSDictionary class]])
+        {
+            [offerwall setLocalParams:localParams];
+        }
     }
+    [offerwall setAdUnitID:adUnitID];
     [offerwall loadAd];
 }
 

@@ -20,7 +20,6 @@
 {
     self = [super init];
     if (self) {
-        [TradPlus setLogLevel:MSLogLevelOff];
         self.native = [[TradPlusAdNative alloc] init];
         self.native.delegate = self;
     }
@@ -101,6 +100,12 @@
 {
     MSLogTrace(@"%s", __PRETTY_FUNCTION__);
     self.native.customAdInfo = customAdInfo;
+}
+
+- (void)setLocalParams:(NSDictionary *)dic
+{
+    self.native.localParams = dic;
+    MSLogTrace(@"%s dic:%@", __PRETTY_FUNCTION__,dic);
 }
 
 - (NSString *)eventName:(NSString *)event

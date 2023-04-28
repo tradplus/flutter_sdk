@@ -76,7 +76,6 @@
         rewardVideo = [[TPFRewardVideo alloc] init];
         self.rewardVideoAds[adUnitID] = rewardVideo;
     }
-    [rewardVideo setAdUnitID:adUnitID];
     NSDictionary *extraMap = call.arguments[@"extraMap"];
     if(extraMap != nil)
     {
@@ -85,6 +84,11 @@
         {
             [rewardVideo setCustomMap:customMap];
         }
+        id localParams = extraMap[@"localParams"];
+        if(localParams != nil && [localParams isKindOfClass:[NSDictionary class]])
+        {
+            [rewardVideo setLocalParams:localParams];
+        }
     }
     NSString *userId = extraMap[@"userId"];
     NSString *customData = extraMap[@"customData"];
@@ -92,6 +96,7 @@
     {
         [rewardVideo setServerSideVerificationOptionsWithUserID:userId customData:customData];
     }
+    [rewardVideo setAdUnitID:adUnitID];
     [rewardVideo loadAd];
 }
 

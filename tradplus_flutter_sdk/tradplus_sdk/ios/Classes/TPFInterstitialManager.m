@@ -77,7 +77,6 @@
         interstitial = [[TPFInterstitial alloc] init];
         self.interstitialAds[adUnitID] = interstitial;
     }
-    [interstitial setAdUnitID:adUnitID];
     NSDictionary *extraMap = call.arguments[@"extraMap"];
     if(extraMap != nil)
     {
@@ -86,7 +85,13 @@
         {
             [interstitial setCustomMap:customMap];
         }
+        id localParams = extraMap[@"localParams"];
+        if(localParams != nil && [localParams isKindOfClass:[NSDictionary class]])
+        {
+            [interstitial setLocalParams:localParams];
+        }
     }
+    [interstitial setAdUnitID:adUnitID];
     [interstitial loadAd];
 }
 
