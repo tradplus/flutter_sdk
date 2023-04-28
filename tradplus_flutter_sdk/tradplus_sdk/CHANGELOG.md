@@ -6,6 +6,14 @@
 
 TradPlus sdk 适配版本：Android - v9.6.10.1; iOS - v9.3.0
 
+## 1.0.8.2
+
+1.适配 iOS v 9.3.0
+2.适配 Android V9.2.10.1
+3.增加测试工具调用API
+
+TradPlus sdk 适配版本：Android - v9.2.10.1; iOS - v9.3.0
+
 ## 1.0.8
 
 1.修复iOS已经问题。
