@@ -61,7 +61,7 @@ public class TPNativeManager {
             tpNative.loadAd();
 
         } else if ("native_ready".equals(call.method)) {
-            boolean isReady = tpNative.isReady();
+            boolean isReady = tpNative.getLoadedCount() > 0;
             result.success(isReady);
         } else if ("native_entryAdScenario".equals(call.method)) {
             tpNative.entryAdScenario(call.argument("sceneId"));

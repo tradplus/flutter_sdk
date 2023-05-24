@@ -1,18 +1,16 @@
+## 1.1.0
+
+1.适配 Android v 9.7.10.1
+2.增加测试工具调用API
+
+TradPlus sdk 适配版本：Android - v9.7.10.1; iOS - v9.3.0
+
 ## 1.0.9
 
 1.适配 iOS v 9.3.0
-2.适配 Android V9.6.10.1
-3.增加测试工具调用API
+2.增加测试工具调用API
 
-TradPlus sdk 适配版本：Android - v9.6.10.1; iOS - v9.3.0
-
-## 1.0.8.2
-
-1.适配 iOS v 9.3.0
-2.适配 Android V9.2.10.1
-3.增加测试工具调用API
-
-TradPlus sdk 适配版本：Android - v9.2.10.1; iOS - v9.3.0
+TradPlus sdk 适配版本：Android - v9.1.0.1; iOS - v9.3.0
 
 ## 1.0.8
 
