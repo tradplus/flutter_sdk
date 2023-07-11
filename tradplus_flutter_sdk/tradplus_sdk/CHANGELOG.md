@@ -1,6 +1,11 @@
+## 1.1.2
+
+1.适配 Android v9.9.0.1 ; iOS v9.6.0
+
+
 ## 1.1.1
 
-1.适配 Android v 9.8.0.1
+1.适配 Android v9.8.0.1
 2.修复iOS已知问题
 3.优化测试模式，废弃原API；优化后切测试模式无需调用API
 
@@ -8,14 +13,14 @@ TradPlus sdk 适配版本：Android - v9.8.0.1; iOS - v9.3.0
 
 ## 1.1.0
 
-1.适配 Android v 9.7.10.1
+1.适配 Android v9.7.10.1
 2.增加测试工具调用API
 
 TradPlus sdk 适配版本：Android - v9.7.10.1; iOS - v9.3.0
 
 ## 1.0.9
 
-1.适配 iOS v 9.3.0
+1.适配 iOS v9.3.0
 2.增加测试工具调用API
 
 TradPlus sdk 适配版本：Android - v9.1.0.1; iOS - v9.3.0
@@ -28,7 +33,7 @@ TradPlus sdk 适配版本：Android - v9.1.0.1; iOS - v8.7.0
 
 ## 1.0.7
 
-1.适配Android V9.1.0.1，有API变动。
+1.适配Android v9.1.0.1，有API变动。
 
 TradPlus sdk 适配版本：Android - v9.1.0.1; iOS - v8.7.0
 
