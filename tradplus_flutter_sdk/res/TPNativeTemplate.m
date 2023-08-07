@@ -23,9 +23,9 @@
     return self.iconImageView;
 }
 
-- (UIView *)nativeMediaView
+- (UIImageView *)nativeMainImageView
 {
-    return self.mainView;
+    return self.imageView;
 }
 
 - (UILabel *)nativeCallToActionTextLabel
@@ -40,6 +40,7 @@
 
 + (UINib *)nibForAd
 {
-    return [UINib nibWithNibName:@"TPNativeTemplate" bundle:nil];
+    NSBundle *resourceBundle = [NSBundle bundleForClass:self];
+    return [UINib nibWithNibName:@"TPNativeTemplate" bundle:resourceBundle];
 }
 @end

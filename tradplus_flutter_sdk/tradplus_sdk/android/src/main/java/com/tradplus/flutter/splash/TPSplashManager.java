@@ -39,7 +39,7 @@ public class TPSplashManager  {
     }
     // 保存广告位对象
     private Map<String, TPSplash> mTPSplashs = new ConcurrentHashMap<>();
-
+    private String sceneId;
     public void onMethodCall(@NonNull MethodCall call, @NonNull MethodChannel.Result result) {
         // 第一级的参数，就一个广告位id
         String adUnitId = call.argument("adUnitID");
@@ -58,6 +58,10 @@ public class TPSplashManager  {
         }  else if ("splash_ready".equals(call.method)) {
             boolean isReady = tpSplash.isReady();
             result.success(isReady);
+
+        }  else if ("splash_entryAdScenario".equals(call.method)) {
+            sceneId = call.argument("sceneId");
+            tpSplash.entryAdScenario(sceneId);
 
         } else if ("splash_show".equals(call.method)) {
             Log.i("TradPlusLog","please create the Widget to show Splash View");
@@ -121,7 +125,7 @@ public class TPSplashManager  {
         return tpSplash;
     }
 
-    public boolean renderView(String adUnitId, ViewGroup viewContainer, String adSceneId, TPNativeAdRender tpNativeAdRender) {
+    public boolean renderView(String adUnitId, ViewGroup viewContainer, TPNativeAdRender tpNativeAdRender) {
         TPSplash tpSplash = mTPSplashs.get(adUnitId);
 
         if(tpSplash == null){
@@ -137,8 +141,7 @@ public class TPSplashManager  {
         if(tpNativeAdRender != null) {
             tpSplash.setNativeAdRender(tpNativeAdRender);
         }
-
-        tpSplash.showAd(viewContainer);
+        tpSplash.showAd(viewContainer,sceneId);
 
         if(viewContainer.getChildCount() <= 0) {
             return false;
