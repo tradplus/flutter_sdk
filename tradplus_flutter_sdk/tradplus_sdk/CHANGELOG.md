@@ -1,8 +1,15 @@
+## 1.1.4
+1.修正 iOS 无初始化回调的问题
+2.banner Extra 中增加了 closeAutoDestroy 用于关闭自动destroy（仅安卓）
+3.banner Extra 中增加了 backgroundColor 用于设置自定义banner 背景色
+
+
 ## 1.1.3
 
 1.适配 Android v10.0.1.1 ; iOS v9.7.0
 2.NativeBanner默认样式改动
 3.开屏支持广告场景功能
+
 
 ## 1.1.2
 
