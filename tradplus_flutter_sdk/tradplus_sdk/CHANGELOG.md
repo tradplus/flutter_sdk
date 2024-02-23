@@ -1,13 +1,21 @@
+## 1.1.5
+
+1.修正 iOS 在执行初始化后的线程通信错误（Flutter 3.13+）
+
 ## 1.1.4
 1.修正 iOS 无初始化回调的问题
+
 2.banner Extra 中增加了 closeAutoDestroy 用于关闭自动destroy（仅安卓）
+
 3.banner Extra 中增加了 backgroundColor 用于设置自定义banner 背景色
 
 
 ## 1.1.3
 
 1.适配 Android v10.0.1.1 ; iOS v9.7.0
+
 2.NativeBanner默认样式改动
+
 3.开屏支持广告场景功能
 
 
@@ -19,7 +27,9 @@
 ## 1.1.1
 
 1.适配 Android v9.8.0.1
+
 2.修复iOS已知问题
+
 3.优化测试模式，废弃原API；优化后切测试模式无需调用API
 
 TradPlus sdk 适配版本：Android - v9.8.0.1; iOS - v9.3.0
@@ -27,6 +37,7 @@ TradPlus sdk 适配版本：Android - v9.8.0.1; iOS - v9.3.0
 ## 1.1.0
 
 1.适配 Android v9.7.10.1
+
 2.增加测试工具调用API
 
 TradPlus sdk 适配版本：Android - v9.7.10.1; iOS - v9.3.0
@@ -34,6 +45,7 @@ TradPlus sdk 适配版本：Android - v9.7.10.1; iOS - v9.3.0
 ## 1.0.9
 
 1.适配 iOS v9.3.0
+
 2.增加测试工具调用API
 
 TradPlus sdk 适配版本：Android - v9.1.0.1; iOS - v9.3.0
