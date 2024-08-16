@@ -17,6 +17,7 @@ import com.tradplus.ads.open.splash.SplashAdListener;
 import com.tradplus.ads.open.splash.TPSplash;
 import com.tradplus.flutter.TPUtils;
 import com.tradplus.flutter.TradPlusSdk;
+import com.tradplus.ads.base.common.TPTaskManager;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -306,9 +307,14 @@ public class TPSplashManager  {
         @Override
         public void onAdIsLoading(String s) {
             Log.v("TradPlusSdk", "onAdIsLoading unitid=" + mAdUnitId + "=======================");
-            final Map<String, Object> paramsMap = new HashMap<>();
-            paramsMap.put("adUnitID", mAdUnitId);
-            TradPlusSdk.getInstance().sendCallBackToFlutter("splash_isLoading", paramsMap);
+            TPTaskManager.getInstance().runOnMainThread(new Runnable() {
+                @Override
+                public void run() {
+                    final Map<String, Object> paramsMap = new HashMap<>();
+                    paramsMap.put("adUnitID", mAdUnitId);
+                    TradPlusSdk.getInstance().sendCallBackToFlutter("splash_isLoading", paramsMap);
+                }
+            });
         }
     }
     private class TPSplashAdListener extends SplashAdListener {
