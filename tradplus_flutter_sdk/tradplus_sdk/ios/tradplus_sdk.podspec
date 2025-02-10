@@ -18,7 +18,7 @@ Tradplus SDK Flutter project.
   s.dependency 'Flutter'
   s.platform = :ios, '12.0'
   
-  s.frameworks = 'NetworkExtension','DeviceCheck'
+  s.frameworks = 'NetworkExtension','DeviceCheck','CoreML'
 
   s.pod_target_xcconfig =   {'OTHER_LDFLAGS' => ['-lObjC']}
   
