@@ -19,6 +19,13 @@ final TPSDKManager = TradplusSdk();
 class TradplusSdk {
   static MethodChannel channel = const MethodChannel('tradplus_sdk');
 
+  ///TradplusSDK 设置自定义测试ID 配置后台测试模式使用
+  Future<void> setCustomTestID(String customTestID) async {
+    Map arguments = {};
+    arguments['customTestID'] = customTestID;
+    TradplusSdk.channel.invokeMethod('tp_setCustomTestID', arguments);
+  }
+
   ///TradplusSDK 设置删除数据库最大限制数
   Future<void> setMaxDatabaseSize(num size) async {
     Map arguments = {};

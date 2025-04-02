@@ -1,22 +1,26 @@
+## 1.2.0
+
+1.支持自定义测试ID
+
 ## 1.1.9
 
 1.支持设置广告平台展示限制
 
 ## 1.1.6
 
-1.修正 Android isLoading切到主线程回调
+1.支持UID2SDK接入
 
 ## 1.1.5
 
 1.修正 iOS 在执行初始化后的线程通信错误（Flutter 3.13+）
 
 ## 1.1.4
+
 1.修正 iOS 无初始化回调的问题
 
 2.banner Extra 中增加了 closeAutoDestroy 用于关闭自动destroy（仅安卓）
 
 3.banner Extra 中增加了 backgroundColor 用于设置自定义banner 背景色
-
 
 ## 1.1.3
 
@@ -26,11 +30,9 @@
 
 3.开屏支持广告场景功能
 
-
 ## 1.1.2
 
 1.适配 Android v9.9.0.1 ; iOS v9.6.0
-
 
 ## 1.1.1
 
