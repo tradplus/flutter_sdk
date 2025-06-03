@@ -32,7 +32,11 @@
 
 - (void)handleMethodCall:(FlutterMethodCall*)call result:(FlutterResult)result
 {
-    if([@"tp_setCustomMap" isEqualToString:call.method])
+    if([@"tp_setPAConsent" isEqualToString:call.method])
+    {
+        [self setPAConsentWithCall:call];
+    }
+    else if([@"tp_setCustomMap" isEqualToString:call.method])
     {
         [self setCustomMapWithCall:call];
     }
@@ -120,6 +124,10 @@
     {
         [self setCustomTestID:call];
     }
+    else if([@"tp_setDefaultConfig" isEqualToString:call.method])
+    {
+        [self setDefaultConfig:call];
+    }
 }
 
 - (void) openTradPlusTool
@@ -141,6 +149,17 @@
         NSLog(@"****************");
     }
 #pragma clang diagnostic pop
+}
+
+- (void)setDefaultConfig:(FlutterMethodCall*)call
+{
+    id adUnitId = call.arguments[@"adUnitId"];
+    id config = call.arguments[@"config"];
+    if(adUnitId != nil && [adUnitId isKindOfClass:[NSString class]]
+       && config != nil && [config isKindOfClass:[NSString class]])
+    {
+        [TradPlus setLocalConfig:config placementId:adUnitId];
+    }
 }
 
 - (void)setPlatformLimit:(FlutterMethodCall*)call
@@ -168,6 +187,15 @@
     if(adUnitId != nil && [adUnitId isKindOfClass:[NSString class]])
     {
         [TradPlus clearCacheWithPlacementId:adUnitId];
+    }
+}
+
+- (void)setPAConsentWithCall:(FlutterMethodCall*)call
+{
+    id consentType = call.arguments[@"consentType"];
+    if(consentType != nil)
+    {
+        [TradPlus setPAConsent:[consentType integerValue]];
     }
 }
 

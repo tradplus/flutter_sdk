@@ -42,7 +42,7 @@ android {
     }
 }
 
-def TRADPLUS_VERSION = "13.8.0.1"
+def TRADPLUS_VERSION = "14.2.0.1"
 
 dependencies {
     //TradPlus
