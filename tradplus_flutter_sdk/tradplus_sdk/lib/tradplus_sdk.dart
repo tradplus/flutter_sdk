@@ -18,7 +18,6 @@ final TPSDKManager = TradplusSdk();
 
 class TradplusSdk {
   static MethodChannel channel = const MethodChannel('tradplus_sdk');
-  static EventChannel eventChannel = const EventChannel('tradplus_sdk_events');
 
   /// TPPAGPAConsentType.Consent 填充
   /// TPPAGPAConsentType.NoConsent 不填充
@@ -211,13 +210,6 @@ class TradplusSdk {
     TradplusSdk.channel.invokeMethod('tp_setOpenDelayLoadAds', arguments);
   }
 
-  ///TradplusSDK 开启Event通道回调 防止fcm
-  Future<void> setEventChannel(bool isOpen) async {
-    Map arguments = {};
-    arguments['isOpen'] = isOpen;
-    TradplusSdk.channel.invokeMethod('tp_setEventChannel', arguments);
-  }
-
   globalAdImpressionCallback(
       TPGlobalAdImpressionListener listener, String method, Map arguments) {
     Map adInfo = {};
@@ -238,7 +230,8 @@ class TradplusSdk {
       bool isEu = arguments["iseu"];
       bool isCn = arguments["iscn"];
       bool isCa = arguments["isca"];
-      listener.currentAreaSuccess!(isEu, isCn, isCa);
+      bool isBr = arguments["isbr"];
+      listener.currentAreaSuccess!(isEu, isCn, isCa, isBr);
     } else if (method == 'tp_currentarea_failed') {
       listener.currentAreaFailed!();
     }
@@ -247,7 +240,7 @@ class TradplusSdk {
 
 class TPInitListener {
   final Function(bool success)? initFinish;
-  final Function(bool isEu, bool isCn, bool isCa)? currentAreaSuccess;
+  final Function(bool isEu, bool isCn, bool isCa, bool isBr)? currentAreaSuccess;
   final Function? currentAreaFailed;
   const TPInitListener({
     this.initFinish,
