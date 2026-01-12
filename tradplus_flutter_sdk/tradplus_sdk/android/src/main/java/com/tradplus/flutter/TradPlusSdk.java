@@ -231,7 +231,7 @@ public class TradPlusSdk {
             String config = call.argument("config");
             if (!adUnitId.isEmpty() && !config.isEmpty()) {
                 Log.i("tradplus", "Flutter setDefaultConfig adUnitId: " + adUnitId + ",config:"+config);
-                com.tradplus.ads.base.config.ConfigLoadManager.getInstance().setDefaultConfig(adUnitId,config);
+                com.tradplus.ads.base.config.ConfigLoadManager.getInstance().setDefaultConfig(adUnitId,config,"");
             }
         } catch (Throwable e) {
 
