@@ -1,6 +1,8 @@
 group 'com.example.tradplus_sdk'
 version '1.0'
 
+
+
 buildscript {
     repositories {
         flatDir {
@@ -8,6 +10,9 @@ buildscript {
         }
         google()
         mavenCentral()
+        mavenLocal()
+        mavenLocal()
+
     }
 
     dependencies {
@@ -17,12 +22,13 @@ buildscript {
 
 rootProject.allprojects {
     repositories {
-        flatDir {
-            dirs 'libs'
-        }
         google()
         mavenCentral()
         mavenLocal()
+        flatDir {
+            dirs 'libs'
+        }
+
 
     }
 }
@@ -30,8 +36,8 @@ rootProject.allprojects {
 apply plugin: 'com.android.library'
 
 android {
-    compileSdkVersion 33
-    namespace 'com.example.tradplus_sdk'
+    compileSdkVersion 34
+    namespace "com.example.tradplus_sdk" // <- 必须加上
 
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
@@ -39,7 +45,7 @@ android {
     }
 
     defaultConfig {
-        minSdkVersion 16
+        minSdkVersion 23
     }
 }
 
@@ -48,5 +54,7 @@ def TRADPLUS_VERSION = "15.4.0.1"
 dependencies {
     //TradPlus
     compileOnly "com.tradplusad:tradplus:${TRADPLUS_VERSION}"
-    compileOnly 'com.quality-ad:uid2-adapter:1.0.0'
+    compileOnly 'com.quality-ad:uid2-adapter:1.0.1'
+    compileOnly 'com.tradplusad:tradplus-tool:1.1.4'
+
 }
